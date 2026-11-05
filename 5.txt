@@ -1,0 +1,9 @@
+function primeFactors(n) {
+  let out = '';
+  for (let p = 2; p * p <= n; p++) {
+    let k = 0;
+    while (n % p === 0) { n /= p; k++; }
+    if (k) out += `(${p}${k > 1 ? `**${k}` : ''})`;
+  }
+  return n > 1 ? out + `(${n})` : out;
+}

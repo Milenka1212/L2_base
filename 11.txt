@@ -1,0 +1,2 @@
+const domainName = url =>
+  url.replace(/^https?:\/\//, '').replace(/^www\./, '').split('.')[0];

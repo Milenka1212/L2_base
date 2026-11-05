@@ -1,0 +1,3 @@
+const bingo = (ticket, win) =>
+  ticket.filter(([s, n]) => [...s].some(c => c.charCodeAt(0) === n)).length >= win
+    ? 'Winner!' : 'Loser!';

@@ -1,0 +1,17 @@
+function cache(func) {
+  const byKey = new Map();
+  const byObj = new WeakMap();
+  return function (...args) {
+    if (args.length === 1 && args[0] && typeof args[0] === 'object') {
+      if (byObj.has(args[0])) return byObj.get(args[0]);
+      const r = func.apply(this, args);
+      byObj.set(args[0], r);
+      return r;
+    }
+    const key = JSON.stringify(args);
+    if (byKey.has(key)) return byKey.get(key);
+    const r = func.apply(this, args);
+    byKey.set(key, r);
+    return r;
+  };
+}

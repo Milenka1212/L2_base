@@ -1,0 +1,7 @@
+function expandedForm(num) {
+  return String(num)
+    .split('')
+    .map((d, i, arr) => Number(d) * 10 ** (arr.length - i - 1))
+    .filter(Boolean)
+    .join(' + ');
+}

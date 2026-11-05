@@ -1,0 +1,8 @@
+function ipv4Parser(ip, mask) {
+  const ipP = ip.split('.').map(Number);
+  const mP  = mask.split('.').map(Number);
+  return [
+    ipP.map((o, i) => o & mP[i]).join('.'),
+    ipP.map((o, i) => o & (255 ^ mP[i])).join('.'),
+  ];
+}

@@ -1,0 +1,6 @@
+function whatCentury(year) {
+  const c = Math.ceil(year / 100);
+  const teen = c % 100 >= 11 && c % 100 <= 13;
+  const suffix = teen ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[c % 10] ?? 'th');
+  return c + suffix;
+}

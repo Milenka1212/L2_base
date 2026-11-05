@@ -1,0 +1,8 @@
+function hasTwoCubeSums(n) {
+  let count = 0;
+  for (let a = 1; 2 * a ** 3 < n; a++) {
+    const b = Math.round(Math.cbrt(n - a ** 3));
+    if (b > a && a ** 3 + b ** 3 === n && ++count === 2) return true;
+  }
+  return false;
+}

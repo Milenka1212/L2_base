@@ -1,0 +1,11 @@
+function howManyTimes(time1, time2) {
+  const parse = s => new Date(s.replace(' ', 'T') + 'Z');
+  const end = parse(time2).getTime();
+  let total = 0;
+  for (const d = parse(time1); d.getTime() < end; d.setUTCSeconds(d.getUTCSeconds() + 1)) {
+    const h = d.getUTCHours(), m = d.getUTCMinutes(), s = d.getUTCSeconds();
+    if (m === 0 && s < 12 && s < (h % 12 || 12)) total++;
+    if (m === 30 && s === 0) total++;
+  }
+  return total;
+}

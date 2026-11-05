@@ -1,0 +1,2 @@
+const isCircleSorted = a =>
+  a.filter((v, i) => v > a[(i + 1) % a.length]).length <= 1;
